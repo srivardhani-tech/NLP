@@ -1,0 +1,19 @@
+import re
+
+def main():
+    # Example text
+    text = "rebbeca@gmail.com."
+
+    # 1. Matching Email Addresses
+    email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b'
+    emails_found = re.findall(email_pattern, text)
+
+    if emails_found:
+        print("Email Addresses found:")
+        for email in emails_found:
+            print(email)
+    else:
+        print("No email addresses found.")
+
+if __name__ == "__main__":
+    main()
