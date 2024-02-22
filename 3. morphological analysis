@@ -1,0 +1,20 @@
+import nltk
+nltk.download('wordnet')  # For lemmatization
+sentence = "The quick brown fox jumps over the lazy dog."
+tokens = nltk.word_tokenize(sentence)
+for token in tokens:
+  pos_tag = nltk.pos_tag([token])[0][1]  # Extract the tag
+
+  # Stemming (optional)
+  # stemmed_word = nltk.PorterStemmer().stem(token)
+
+  # Lemmatization (recommended)
+  lemmatized_word = nltk.WordNetLemmatizer().lemmatize(token)
+
+  # Print the original word, POS tag, and lemmatized form
+  print(f"Original: {token}, POS: {pos_tag}, Lemma: {lemmatized_word}")
+
+# Example output:
+# Original: The, POS: DT, Lemma: the
+# Original: quick, POS: JJ, Lemma: quick
+# ...
