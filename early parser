@@ -1,0 +1,11 @@
+from lark import Lark
+grammar = '''
+    start: sentence
+    sentence: "the" noun "is" adjective
+    noun: "cat" | "dog" | "bird"
+    adjective: "happy" | "sad" | "hungry"
+'''
+parser = Lark(grammar, start='start')
+sentence = "the cat is happy"
+tree = parser.parse(sentence)
+print(tree.pretty())
